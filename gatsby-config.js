@@ -5,7 +5,7 @@ module.exports = {
     description: 'Look on the plus side.',
     siteUrl: 'https://noah.plus/',
   },
-  // pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -45,59 +45,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
-    // {
-    //   resolve: `gatsby-plugin-feed`,
-    //   options: {
-    //     query: `
-    //     {
-    //       site {
-    //         siteMetadata {
-    //           title
-    //           description
-    //           siteUrl
-    //           site_url: siteUrl
-    //         }
-    //       }
-    //     }
-    //   `,
-    //     feeds: [
-    //       {
-    //         serialize: ({ query: { site, allMarkdownRemark } }) => {
-    //           return allMarkdownRemark.edges.map(edge => {
-    //             return Object.assign({}, edge.node.frontmatter, {
-    //               description: edge.node.excerpt,
-    //               url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //               guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //               custom_elements: [{ "content:encoded": edge.node.html }],
-    //             });
-    //           });
-    //         },
-    //         query: `
-    //         {
-    //           allMarkdownRemark(
-    //             limit: 1000,
-    //             sort: { order: DESC, fields: [frontmatter___date] },
-    //             filter: {frontmatter: { draft: { ne: true } }}
-    //           ) {
-    //             edges {
-    //               node {
-    //                 excerpt
-    //                 html
-    //                 fields { slug }
-    //                 frontmatter {
-    //                   title
-    //                   date
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       `,
-    //         output: "/rss.xml",
-    //       },
-    //     ],
-    //   },
-    // },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
@@ -107,22 +54,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        logo: "./static/favicon.png",
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
-      }
-    }
+        name: "noah.plus",
+        short_name: "noah.plus",
+        start_url: "/",
+        background_color: "#292929",
+        theme_color: "#ffffff",
+        display: "minimal-ui",
+        icon: "static/icon.png", // This path is relative to the root of the site.
+      },
+    },
   ],
 }
