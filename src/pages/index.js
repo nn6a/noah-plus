@@ -12,7 +12,18 @@ class BlogIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} />
+        <Helmet>
+          {/* General tags */}
+          <title>{siteTitle}</title>
+          <meta name="description" content="Look on the plus side." />
+
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site:id" content="@noah_nak" />
+          <meta name="twitter:title" content={siteTitle} />
+          <meta property="og:description" content="Look on the plus side." />
+          <meta name="twitter:image" content="https://noah.plus/icons/icon-512x512.png" />
+        </Helmet>
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (

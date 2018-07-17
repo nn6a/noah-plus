@@ -1,16 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-// import get from 'lodash/get'
 
 import { rhythm, scale } from '../utils/typography'
 import 'prismjs/themes/prism-tomorrow.css'
-import logo from '../../static/favicon.png'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const { previous, next } = this.props.pathContext
 
     return (
@@ -32,7 +29,8 @@ class BlogPostTemplate extends React.Component {
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site:id" content="@noah_nak" />
           <meta name="twitter:title" content={post.frontmatter.title} />
-          <meta name="twitter:image" content={logo} />
+          <meta property="og:description" content={post.excerpt} />
+          <meta name="twitter:image" content="https://noah.plus/icons/icon-512x512.png" />
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -46,7 +44,12 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }}/>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.html }}
+          style={{
+            letterSpacing: '0.08em',
+          }}
+        />
 
         <hr
           style={{
@@ -93,7 +96,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
