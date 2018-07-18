@@ -13,16 +13,20 @@ class BlogIndex extends React.Component {
     return (
       <div>
         <Helmet>
-          {/* General tags */}
           <title>{siteTitle}</title>
           <meta name="description" content="Look on the plus side." />
 
-          {/* Twitter Card tags */}
+          <meta property="og:title" content={siteTitle} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://noah.plus/" />
+          <meta property="og:image" content="https://noah.plus/icons/icon-512x512.png" />
+          <meta property="og:site_name" content="noah.plus" />
+          <meta property="og:description" content="Look on the plus side." />
+
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site:id" content="@noah_nak" />
-          <meta name="twitter:title" content={siteTitle} />
-          <meta property="og:description" content="Look on the plus side." />
-          <meta name="twitter:image" content="https://noah.plus/icons/icon-512x512.png" />
+
+          <meta property="fb:admins" content="100009792034310" />
         </Helmet>
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug

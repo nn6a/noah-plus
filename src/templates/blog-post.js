@@ -13,24 +13,20 @@ class BlogPostTemplate extends React.Component {
     return (
       <div>
         <Helmet>
-          {/* General tags */}
-          <title>{`${post.frontmatter.title}`}</title>
+          <title>{post.frontmatter.title}</title>
           <meta name="description" content={post.excerpt} />
 
-          {/* OpenGraph tags */}
-          {/*<meta property="og:url" content={url} />*/}
-          {/*<meta property="og:type" content="article" />*/}
-          {/*<meta property="og:title" content={title} />*/}
-          {/*<meta property="og:description" content={description} />*/}
-          {/*<meta property="og:image" content={image} />*/}
-          {/*<meta property="fb:app_id" content={config.fbAppID} />*/}
+          <meta property="og:title" content={post.frontmatter.title} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={"https://noah.plus" + this.props.location.pathname} />
+          <meta property="og:image" content="https://noah.plus/icons/icon-512x512.png" />
+          <meta property="og:site_name" content="noah.plus" />
+          <meta property="og:description" content={post.excerpt} />
 
-          {/* Twitter Card tags */}
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site:id" content="@noah_nak" />
-          <meta name="twitter:title" content={post.frontmatter.title} />
-          <meta property="og:description" content={post.excerpt} />
-          <meta name="twitter:image" content="https://noah.plus/icons/icon-512x512.png" />
+
+          <meta property="fb:admins" content="100009792034310" />
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
         <p
