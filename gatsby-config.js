@@ -5,7 +5,6 @@ module.exports = {
     description: 'Look on the plus side.',
     siteUrl: 'https://noah.plus/',
   },
-  pathPrefix: '/blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
