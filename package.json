@@ -25,6 +25,7 @@
     "gatsby-transformer-remark": "^1.7.40",
     "gatsby-transformer-sharp": "^1.6.22",
     "lodash": "^4.17.5",
+    "styled-components": "^3.3.3",
     "typography-theme-parnassus": "^0.15.10"
   },
   "devDependencies": {
