@@ -8,6 +8,13 @@ export default class FacebookButton extends React.Component {
     const href = `https://www.facebook.com/dialog/share?app_id=281060879310527&display=popup&href=${url}`
 
     window.open(href, 'facebookwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1')
+    if (window.ga) {
+      window.ga(`send`, `event`, {
+        eventCategory: `SNS`,
+        eventAction: `share`,
+        eventLabel: `facebook`,
+      })
+    }
   }
 
   render () {

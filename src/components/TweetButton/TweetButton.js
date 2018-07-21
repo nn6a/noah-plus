@@ -8,7 +8,14 @@ export default class TweetButton extends React.Component {
     const text = encodeURIComponent(this.props.text)
     const href = `https://twitter.com/share?url=${url}&text=${text}`
 
-    window.open(href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+    window.open(href, 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1')
+    if (window.ga) {
+      window.ga(`send`, `event`, {
+        eventCategory: `SNS`,
+        eventAction: `share`,
+        eventLabel: `twitter`,
+      })
+    }
   }
 
   render () {
@@ -32,7 +39,7 @@ const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-`;
+`
 
 const Logo = styled.img`
   width: 100%;

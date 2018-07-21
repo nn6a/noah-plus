@@ -7,6 +7,13 @@ export default class HatenaButton extends React.Component {
     const href = `http://b.hatena.ne.jp/entry/s/noah.plus${this.props.path}`
 
     window.open(href, '_blank');
+    if (window.ga) {
+      window.ga(`send`, `event`, {
+        eventCategory: `SNS`,
+        eventAction: `share`,
+        eventLabel: `hatena`,
+      })
+    }
   }
 
   render () {
