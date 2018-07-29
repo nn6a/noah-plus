@@ -64,5 +64,6 @@ module.exports = {
         icon: "static/icon.png", // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-twitter`,
   ],
 }
