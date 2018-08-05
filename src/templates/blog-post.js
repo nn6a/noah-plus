@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 
 import { rhythm, scale } from '../utils/typography'
-import 'prismjs/themes/prism-tomorrow.css'
+import '../../static/prism-darcula.css'
 import TweetButton from '../components/TweetButton/TweetButton'
 import FacebookButton from '../components/FacebookButton/FacebookButton'
 import HatenaButton from '../components/HatenaButton/HatenaButton'
